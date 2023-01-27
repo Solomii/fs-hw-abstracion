@@ -1,9 +1,23 @@
 "use strict";
 
+/*
+Створити "абстрактний" клас Figure3D з властивістю name (рядок не порожній)
+і методом обчислити об'єм.
 
-function logPerimetrFigure3D(figure){
+Створити класи нащадки: сфера, куб, циліндр.
+Обов'яково прописати сеттери та геттери для властивостей! 
+Не забувати про виброс виключень.
+
+Використовувати конструкцію try/catch
+Створити по одному екземпляру кожного класу. 
+
+Створити функцію showVolume3DFigure, яка приймає об'єкт і повертає рядок виду "[назва фигури] has volume: [значення об'єму].
+*/
+
+
+function showVolume3DFigure(figure){
   if(figure instanceof Figure3D){
-    console.log(figure.name, " volume = ", figure.getVolume())
+    console.log(figure.name, "has volume = ", figure.getVolume())
     return;
   }
   throw new TypeError('instance must be extends Figure')
@@ -113,21 +127,21 @@ class Cylinder extends Figure3D {
 
 try {
     const figure1 = new Sphere(3);
-    logPerimetrFigure3D(figure1)
+    showVolume3DFigure(figure1)
 } catch (error) {
     console.log(error);
 }
 
 try {
     const figure2 = new Cube(3);
-    logPerimetrFigure3D(figure2)
+    showVolume3DFigure(figure2)
 } catch (error) {
     console.log(error);
 }
 
 try {
     const figure3 = new Cylinder(3, 4);
-    logPerimetrFigure3D(figure3)
+    showVolume3DFigure(figure3)
 } catch (error) {
     console.log(error);
 }
