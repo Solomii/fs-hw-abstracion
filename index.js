@@ -14,13 +14,12 @@
 Створити функцію showVolume3DFigure, яка приймає об'єкт і повертає рядок виду "[назва фигури] has volume: [значення об'єму].
 */
 
-
-function showVolume3DFigure(figure){
-  if(figure instanceof Figure3D){
-    console.log(figure.name, "has volume = ", figure.getVolume())
-    return;
-  }
-  throw new TypeError('instance must be extends Figure')
+function showVolume3DFigure(figure) {
+    if (figure instanceof Figure3D) {
+        console.log(figure.name, "has volume = ", figure.getVolume());
+        return;
+    }
+    throw new TypeError("instance must be extends Figure");
 }
 
 class Figure3D {
@@ -29,6 +28,17 @@ class Figure3D {
             throw new Error("Not create instance from Figure!");
         }
         this.name = name;
+    }
+
+    set name(value){
+      if (typeof value === 'string' && value.trim().length === 0) {
+        throw new RangeError('name of figure is empty');
+      } 
+      this._name=value;
+    }
+
+    get name(){
+      return this._name;
     }
     getVolume() {}
 }
@@ -127,64 +137,63 @@ class Cylinder extends Figure3D {
 
 try {
     const figure1 = new Sphere(3);
-    showVolume3DFigure(figure1)
+    showVolume3DFigure(figure1);
 } catch (error) {
     console.log(error);
 }
 
 try {
-  const figureSphereTypeError = new Sphere("3");
-  console.log(figureSphereTypeError.getVolume())
+    const figureSphereTypeError = new Sphere("3");
+    console.log(figureSphereTypeError.getVolume());
 } catch (error) {
-  console.log(error);
+    console.log(error);
 }
 
 try {
-  const figureSphereRangeError = new Sphere(-3);
-  console.log(figureSphereRangeError.getVolume())
+    const figureSphereRangeError = new Sphere(-3);
+    console.log(figureSphereRangeError.getVolume());
 } catch (error) {
-  console.log(error);
+    console.log(error);
 }
 
 try {
     const figure2 = new Cube(3);
-    showVolume3DFigure(figure2)
+    showVolume3DFigure(figure2);
 } catch (error) {
     console.log(error);
 }
 
 try {
-  const figureCubeTypeError = new Cube("3");
-  console.log(figureCubeTypeError.getVolume())
+    const figureCubeTypeError = new Cube("3");
+    console.log(figureCubeTypeError.getVolume());
 } catch (error) {
-  console.log(error);
+    console.log(error);
 }
 
 try {
-  const figureCubeRangeError = new Cube(-3);
-  console.log(figureCubeRangeError.getVolume())
+    const figureCubeRangeError = new Cube(-3);
+    console.log(figureCubeRangeError.getVolume());
 } catch (error) {
-  console.log(error);
+    console.log(error);
 }
 
 try {
     const figure3 = new Cylinder(3, 4);
-    showVolume3DFigure(figure3)
+    showVolume3DFigure(figure3);
 } catch (error) {
     console.log(error);
 }
 
 try {
-  const figureCylinderTypeError = new Cylinder("3","4");
-  console.log(figureCylinderTypeError.getVolume())
+    const figureCylinderTypeError = new Cylinder("3", "4");
+    console.log(figureCylinderTypeError.getVolume());
 } catch (error) {
-  console.log(error);
+    console.log(error);
 }
 
 try {
-  const figureCylinderRangeError = new Cylinder(-3,0);
-  console.log(figureCylinderRangeError.getVolume())
+    const figureCylinderRangeError = new Cylinder(-3, 0);
+    console.log(figureCylinderRangeError.getVolume());
 } catch (error) {
-  console.log(error);
+    console.log(error);
 }
-
