@@ -133,10 +133,38 @@ try {
 }
 
 try {
+  const figureSphereTypeError = new Sphere("3");
+  console.log(figureSphereTypeError.getVolume())
+} catch (error) {
+  console.log(error);
+}
+
+try {
+  const figureSphereRangeError = new Sphere(-3);
+  console.log(figureSphereRangeError.getVolume())
+} catch (error) {
+  console.log(error);
+}
+
+try {
     const figure2 = new Cube(3);
     showVolume3DFigure(figure2)
 } catch (error) {
     console.log(error);
+}
+
+try {
+  const figureCubeTypeError = new Cube("3");
+  console.log(figureCubeTypeError.getVolume())
+} catch (error) {
+  console.log(error);
+}
+
+try {
+  const figureCubeRangeError = new Cube(-3);
+  console.log(figureCubeRangeError.getVolume())
+} catch (error) {
+  console.log(error);
 }
 
 try {
@@ -145,3 +173,18 @@ try {
 } catch (error) {
     console.log(error);
 }
+
+try {
+  const figureCylinderTypeError = new Cylinder("3","4");
+  console.log(figureCylinderTypeError.getVolume())
+} catch (error) {
+  console.log(error);
+}
+
+try {
+  const figureCylinderRangeError = new Cylinder(-3,0);
+  console.log(figureCylinderRangeError.getVolume())
+} catch (error) {
+  console.log(error);
+}
+
